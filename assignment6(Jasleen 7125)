@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class sample {
+public:
+int Compute(int (sample::*funcPtr)(int),int num)  {
+    // calling member function through pointer
+    return (this->*funcPtr)(num);
+
+}
+
+int findFactorial(int n) {
+int fact=1;
+for(int i=1;i<=n;i++) {
+fact = fact * i;
+}
+return fact;
+}
+
+int findSquare(int n) {
+return n*n;
+}
+int findCube(int n) {
+return n*n*n;
+}
+
+};
+
+int main(int argc, char *argv[]) {
+sample obj;
+
+//Call Compute method and pass the findfactorial function as an argument;
+int fact = obj.Compute(&sample::findFactorial,4);
+cout<<"Factorial of 4 is:"<<fact<<endl;
+
+int Square = obj.Compute(&sample::findSquare,8);
+cout<<"Square of 8 is:"<<Square<<endl;
+
+int Cube = obj.Compute(&sample::findCube,6);
+cout<<"Cube of 6 is:"<<Cube<<endl;
+
+return 0;
+}
