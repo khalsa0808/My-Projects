@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+class BCA{
+    int subjects;
+
+    public:
+    BCA(){}
+
+    BCA(int s){
+        subjects=s;
+    }
+
+    void display(){
+        cout<<"Subjects = "<<subjects<<endl;
+    }
+
+      int friend operator+ (int s, BCA& obj){
+                 return (s + obj.subjects);
+      }
+
+};
+
+int main(){
+       BCA obj1=5;
+       BCA obj2=7;
+       BCA obj3 = 2 + obj1;// Using the overloaded operator+ to add 2 to obj1
+       obj1.display();
+       obj3.display();
+
+}
