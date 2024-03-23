@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+class series{
+    public:
+    void compute(int n){
+    	int i,sum=0;
+    for(i=1;i<=n;i++){
+           int s_sum=0;
+           for(int j=1;j<=i;j++){
+           	s_sum= s_sum + j;
+		   }
+		   sum = sum + s_sum;
+	}	
+    	cout<<"sum of series : "<<sum<<endl;
+    }
+};
+
+int main(){
+    int n;
+    cout<<"enter the value of n:";
+    cin>>n;
+    series obj1;
+    obj1.compute(n);
+}
