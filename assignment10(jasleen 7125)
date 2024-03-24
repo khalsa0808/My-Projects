@@ -1,0 +1,56 @@
+
+#include<iostream>
+using namespace std;
+
+class Book{
+    public:
+     string ISBN_num;
+     string name;
+     string author;
+};
+
+class library{
+    private:
+    Book books[5];
+
+    public:
+    library(){
+
+          books[0] = {"1234567890", "The god of small things", "Arundhati Roy"};
+         books[1] = {"2345678901", "Broken Wings", "Sarojini Naidu"};
+         books[2] = {"3456789012", "Atomic habit", "James clear"};
+         books[3] = {"3456784321", " Building Partnerships", "Arundhati Roy"};
+         books[4] = {"5678389012", "Dynamics of Social Change", " Chandra Shekhar"};
+    }
+
+   Book* searchBook(string& isbn){
+      for(int i=0;i<5;i++){
+        if(books[i].ISBN_num==isbn){
+            return &books[i];
+      }
+    }
+     return nullptr;
+    }
+};
+
+int main(){
+      library obj1;
+
+        string isbn;
+      cout<< "Enter the ISBN of the book: ";
+      cin>>isbn;  
+
+      Book* found_book = obj1.searchBook(isbn); 
+
+      if(found_book != nullptr) {
+        cout<<"Book available in the library :) "<<endl;
+        cout<<"Name:"<<found_book->name<<endl;
+        cout<<"Author:"<<found_book->author<<endl;   
+      } else {
+          cout << "Book not available in the library :(" << endl;
+      }
+      
+    return 0;
+}
+
+
