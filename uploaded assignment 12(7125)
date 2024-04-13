@@ -1,0 +1,38 @@
+
+#include<iostream>
+using namespace std;
+
+class  smallUnit {
+    int inches;
+    public:
+    void display(){
+        cout<<"in inches:"<<inches<<endl;
+    }
+    smallUnit(int i){
+         inches=i;
+    }
+    int getinches(){return inches;}
+};
+
+class largerUnit{
+    int feets;
+    public:
+    largerUnit(){feets=0;}
+    largerUnit(smallUnit obj2){
+        int f;
+        f=obj2.getinches();
+        feets=f/12;      
+    }
+    void display(){
+        cout<<"in feets:"<<feets<<endl;
+    }
+
+};
+
+int main(){
+    smallUnit obj1(24);
+    largerUnit obj2;
+    obj2=obj1;
+    obj1.display();
+    obj2.display();
+}
