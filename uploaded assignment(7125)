@@ -1,0 +1,44 @@
+#include<iostream>
+ using namespace std;
+ class Food{
+    int totalpizzas;
+    int totalPastas;
+    public:
+    Food(){totalpizzas=5,totalPastas=5;}
+    int GetFood(){
+        return totalpizzas;
+    }
+     int getpastas(){
+        return totalPastas; 
+    }
+ };
+
+ class Drinks:public Food{
+    private:
+    int totalCokes;
+    public:
+    Drinks(){totalCokes=4;}
+    int getDrinks(){
+        return totalCokes;
+    }
+ };
+
+ class BILL:public Drinks{
+    private:
+    int pizzasPrice,pastasPrice,cokesPrice;
+    public:
+    BILL(){
+        pizzasPrice=90,pastasPrice=120,cokesPrice=65;
+    }
+    void showBill(){
+      int totalFoodcost=(GetFood()*pizzasPrice)+(getpastas()*pastasPrice);
+      int totalDrinkscost=getDrinks()*cokesPrice;
+      int totalBill=totalFoodcost+totalDrinkscost;
+
+      cout<<"Total Bill="<<totalBill<<endl;
+    }
+ };
+ int main(){
+     BILL obj1;
+     obj1.showBill();
+ }
