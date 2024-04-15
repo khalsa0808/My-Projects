@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+class Digits;
+class Number{
+    private:
+    int a;
+    public:
+    Number(){}
+    Number(int a){this->a=a;}
+    // by using friend classes
+    friend void sum(Number&,Digits&);
+    
+};
+class Digits:public Number{
+    private:
+    int b;
+    public:
+    Digits(){}
+    Digits(int b){this->b=b;} 
+    friend void sum(Number&,Digits&);
+};
+void sum(Number &n,Digits&d){
+    cout<<"sum is:"<<n.a + d.b<<endl;
+}
+
+int main(){
+       Number obj1(20);
+       Digits obj2(6);
+       sum(obj1,obj2);
+}
